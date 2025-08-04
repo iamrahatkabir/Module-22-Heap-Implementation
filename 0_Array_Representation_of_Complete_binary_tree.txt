@@ -7,7 +7,7 @@ parent_index*2+2 = Right Index;
 
 
 //Children Index to Parent Index;
-(child_index - 1)/2 = Child Index; 
+(child_index - 1)/2 = Parent Index; 
 
 
 
