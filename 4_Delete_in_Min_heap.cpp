@@ -33,7 +33,7 @@ void insert_heap(vector<int> &v, int val)
     {
         int parent_idx = (current_idx - 1)/2;
 
-        if(v[parent_idx] < v[current_idx])
+        if(v[parent_idx] > v[current_idx])
             swap(v[parent_idx], v[current_idx]);
         else
             break;
@@ -61,7 +61,7 @@ void delete_heap(vector<int> &v)
         int left_idx = curr_idx * 2 + 1;
         int right_idx = curr_idx * 2 + 2;   
 
-        int left_val = INT_MIN, right_val = INT_MIN;
+        int left_val = INT_MAX, right_val = INT_MAX;
 
         if(left_idx < v.size())
             left_val = v[left_idx];
@@ -69,12 +69,12 @@ void delete_heap(vector<int> &v)
         if(right_idx < v.size())
             right_val = v[right_idx];
 
-        if(left_val >= right_val && left_val > v[curr_idx])
+        if(left_val <= right_val && left_val < v[curr_idx])
         {
             swap(v[left_idx], v[curr_idx]);
             curr_idx = left_idx;
         }
-        else if(right_val > left_val && right_val > v[curr_idx])
+        else if(right_val < left_val && right_val < v[curr_idx])
         {
             swap(v[left_idx], v[curr_idx]);
             curr_idx = right_idx;
